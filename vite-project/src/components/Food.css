@@ -1,0 +1,336 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: salmon;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-option {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.header-option:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.active {
+  background-color: #e9967a;
+}
+
+.container {
+  padding: 20px;
+}
+
+.level {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.restaurant {
+  flex: 1 0 30%;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  margin: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  height: 300px;
+}
+
+.restaurant:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.restaurant img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.restaurant-info {
+  padding: 15px;
+}
+
+.restaurant-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.review {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.stars {
+  margin-left: 10px;
+  color: gold;
+}
+
+.price {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Media Queries for Small Screens (like iPhone 14 Max) */
+@media (max-width: 1024px) {
+  .level {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .restaurant {
+      max-width: 100%;
+      margin-bottom: 20px;
+      height: auto; /* Allow flexible height for better fit */
+  }
+
+  .search-bar input {
+      width: 80%;
+  }
+
+  .search-bar button {
+      width: 15%;
+  }
+
+  .restaurant-name {
+      font-size: 16px; /* Adjust font size for smaller screens */
+  }
+
+  .review {
+      font-size: 12px; /* Adjust font size for smaller screens */
+  }
+
+  .price {
+      font-size: 12px;
+      padding: 5px;
+  }
+
+  /* Adjust header links */
+  .header-option {
+      font-size: 14px;
+      padding: 8px 15px;
+  }
+}
+
+@media (max-width: 430px) { /* For iPhone 14 Max */
+  .level {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .restaurant {
+      max-width: 100%;
+      margin: 10px 0;
+      height: 250px; /* Adjusted height */
+  }
+
+  .restaurant-name {
+      font-size: 14px; /* Further reduced font size */
+  }
+
+  .review {
+      font-size: 12px;
+  }
+
+  .price {
+      font-size: 12px;
+      padding: 5px;
+  }
+
+  .search-bar input {
+      width: 70%;
+  }
+
+  .search-bar button {
+      width: 20%;
+  }
+
+  .header-option {
+      font-size: 13px;
+      padding: 6px 12px;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #e8e8e8, #f8f8f8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  font-size: 20px;
+  color: white;
+  background-color: red;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn:hover {
+  background-color: darkred;
+}
+
+.scroll-btn {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-btn:hover {
+  background-color: darkred;
+}
+
+.left-btn {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+.right-btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.modal-content img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.small-images {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.small-images img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.description {
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.address {
+  margin-top: 10px;
+  font-size: 14px;
+  color: blue;
+  cursor: pointer;
+}
+
+.search-bar {
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 300px;
+}
+
+.search-bar button {
+  padding: 10px 15px;
+  background-color: salmon;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.search-bar button:hover {
+  background-color: #ff704d;
+}
+
+.sort-btn {
+  margin-left: 20px;
+  padding: 10px 15px;
+  background-color: salmon;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sort-btn:hover {
+  background-color: #ff704d;
+}

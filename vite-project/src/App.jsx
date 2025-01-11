@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TouristSpot from './pages/TouristSpot';
 import Accomadation from './pages/Accomodation';
 import Shopping from './pages/Shopping.jsx';
+import Food from './components/Food.jsx';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/things-to-do" element={<TouristSpot />} />
           <Route path="/accommodation" element={<Accomadation/>} />
           <Route path='/shopping' element={<Shopping/>} />
+          <Route path='/food' element={<Food/>} />
         </Routes>
         <Footer />
       </div>
