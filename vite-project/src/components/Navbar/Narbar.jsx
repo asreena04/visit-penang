@@ -16,7 +16,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50 border-b border-gray-200">
+    <nav className="bg-white shadow-lg sticky top-0 z-20 border-b border-gray-200">
       <div className="container flex justify-between items-center py-4 px-6">
         {/* Logo section */}
         <div className="logo flex items-center gap-3 font-bold uppercase mr-8 text-2xl">
@@ -34,7 +34,6 @@ const Navbar = () => {
                 {item.title === "Food & Dining" && <IoRestaurantOutline className="text-3xl text-gray-600" />}
                 {item.title === "Shopping" && <FaShoppingBag className="text-xl text-gray-600" />}
                 {item.title === "Where to Stay" && <FaHotel className="text-3xl text-gray-600" />}
-                {item.title === "Contact & FAQ" && <TiContacts className="text-4xl text-gray-600" />}
                 <a href={item.link} className="navbar-link inline-block py-2 px-4 font-semibold transition-all duration-200">
                   {item.title}
                 </a>

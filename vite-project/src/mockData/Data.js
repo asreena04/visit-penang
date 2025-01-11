@@ -24,9 +24,4 @@ export const NavbarMenu = [
     title: "Where to Stay",
     link: "/accommodation"
   },
-  {
-    id: 6,
-    title: "Contact & FAQ",
-    link: "/contact"
-  },
 ]
